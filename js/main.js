@@ -37,33 +37,33 @@ console.log(bombs);
  var possibilita =   (rangebombe - 16);
  var disinneschi = [];
 
-do {
-    //Chiedere all' utente di inserire un numero tra 1 e 100
-     var scelta = Number(prompt("Inserisci un numero comreso tra 1 e " + rangebombe ));
+// do {
+//     //Chiedere all' utente di inserire un numero tra 1 e 100
+//      var scelta = Number(prompt("Inserisci un numero comreso tra 1 e " + rangebombe ));
 
-    //Verificare se input può essere inserito nell array disinneschi
-    if(isNaN(scelta)){
-        alert("Devi inserire un numero");
+//     //Verificare se input può essere inserito nell array disinneschi
+//     if(isNaN(scelta)){
+//         alert("Devi inserire un numero");
 
-    } else if (scelta < 1 || scelta > rangebombe) {
-        alert("Devi inserire  un numero compreso tra 1 e 100");
+//     } else if (scelta < 1 || scelta > rangebombe) {
+//         alert("Devi inserire  un numero compreso tra 1 e 100");
 
-    } else if (bombs.includes(scelta)){
-        alert("BOOOOM! Hai disinnescato " + punti + " bombe");
+//     } else if (bombs.includes(scelta)){
+//         alert("BOOOOM! Hai disinnescato " + punti + " bombe");
 
-    } else if (disinneschi.includes(scelta)){
-        alert("Numero già inserito");
-    } else {
-        disinneschi.push(scelta);
-        punti = punti + 1;
-    }
-    console.log(disinneschi);
+//     } else if (disinneschi.includes(scelta)){
+//         alert("Numero già inserito");
+//     } else {
+//         disinneschi.push(scelta);
+//         punti = punti + 1;
+//     }
+//     console.log(disinneschi);
 
-} while (disinneschi.length < possibilita && !bombs.includes(scelta) )
+// } while (disinneschi.length < possibilita && !bombs.includes(scelta) )
 
- if (disinneschi.length == possibilita){
-    alert("Complimenti sei un artificiere incredibile!")
-}
+//  if (disinneschi.length == possibilita){
+//     alert("Complimenti sei un artificiere incredibile!")
+// }
 
 
 function creaCampo(celle) {
@@ -82,10 +82,12 @@ function creaCampo(celle) {
 document.getElementById('campo').addEventListener('click', 
     function(e)  {
         console.log(e.target.dataset.cella);
-        let element = document.querySelectorAll("[data-cella='" + + "']");
+        let element = document.querySelectorAll("[data-cella='" + e.target.dataset.cella + "']");
         console.log(element[0]);
         element[0].classList.add("red");
     }
 )
 
 creaCampo(100);
+
+
